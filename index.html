@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Бизнес Йога | Лаборатория "Жизнь-is тренинг"</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fefcf5;
+            color: #1e2a3a;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        :root {
+            --gold: #c6a43b;
+            --gold-dark: #a07e2c;
+            --deep: #0f1a24;
+            --deep-light: #1e2f3c;
+            --sand: #faf6ed;
+            --text-dark: #1e2a3a;
+            --text-muted: #5a6e7c;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 36px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+            background: white;
+            color: var(--deep);
+            letter-spacing: 0.3px;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: #0f1a24;
+            box-shadow: 0 8px 20px rgba(198, 164, 59, 0.25);
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(198, 164, 59, 0.35);
+        }
+
+        .btn-outline {
+            border: 1.5px solid var(--gold);
+            background: transparent;
+            color: var(--gold);
+        }
+
+        .btn-outline:hover {
+            background: rgba(198, 164, 59, 0.1);
+            border-color: var(--gold-dark);
+            color: var(--gold-dark);
+        }
+
+        .navbar {
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            color: var(--deep);
+        }
+        .logo span {
+            color: var(--gold);
+            font-weight: 800;
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .hero {
+            padding: 60px 0 80px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 48px;
+        }
+        .hero-content {
+            flex: 1;
+        }
+        .hero-badge {
+            background: rgba(198,164,59,0.15);
+            color: var(--gold-dark);
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -1.5px;
+            margin-bottom: 24px;
+            color: var(--deep);
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            max-width: 550px;
+        }
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .hero-quote {
+            margin-top: 32px;
+            font-style: italic;
+            border-left: 3px solid var(--gold);
+            padding-left: 20px;
+            color: var(--deep-light);
+            font-weight: 500;
+        }
+
+        .section {
+            padding: 80px 0;
+            border-bottom: 1px solid #eee8dd;
+        }
+        .section-light {
+            background: var(--sand);
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.6rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--deep);
+            letter-spacing: -1px;
+        }
+        .section-sub {
+            text-align: center;
+            color: var(--text-muted);
+            max-width: 720px;
+            margin: 0 auto 56px;
+            font-size: 1.2rem;
+        }
+        .grid-2col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 48px;
+            align-items: center;
+        }
+        .grid-3col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+        .card {
+            background: white;
+            border-radius: 28px;
+            padding: 32px;
+            box-shadow: 0 15px 30px -12px rgba(0,0,0,0.05);
+            transition: all 0.25s;
+            border: 1px solid #f0e9db;
+        }
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: var(--gold);
+            box-shadow: 0 25px 35px -12px rgba(0,0,0,0.1);
+        }
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+        .mission-text {
+            font-size: 1.3rem;
+            line-height: 1.4;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--deep-light);
+            font-weight: 500;
+        }
+        .insight-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+        .insight-list li {
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .insight-list i {
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+        .two-columns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: space-between;
+        }
+        .two-columns > div {
+            flex: 1;
+            min-width: 240px;
+        }
+        .author-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+            align-items: center;
+        }
+        .author-photo {
+            flex: 0.8;
+            text-align: center;
+        }
+        .author-photo .avatar {
+            width: 240px;
+            height: 240px;
+            background: linear-gradient(135deg, #e6d5b8, #c6a43b);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            font-weight: bold;
+            color: white;
+            margin: 0 auto;
+            box-shadow: 0 20px 30px rgba(0,0,0,0.1);
+        }
+        .author-bio {
+            flex: 1.5;
+        }
+        .price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--deep);
+        }
+        .price small {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+        .footer {
+            background: var(--deep);
+            color: #ccc;
+            padding: 48px 0;
+            text-align: center;
+        }
+        .footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.4rem; }
+            .section-title { font-size: 2rem; }
+            .navbar { flex-direction: column; }
+            .nav-links { flex-wrap: wrap; justify-content: center; }
+            .hero { padding: 30px 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">Лаборатория <span>«Жизнь-is тренинг»</span></div>
+            <div class="nav-links">
+                <a href="#about">О методе</a>
+                <a href="#systems">9 систем</a>
+                <a href="#author">Елена</a>
+                <a href="#format">Формат</a>
+                <a href="#price">Стоимость</a>
+                <a href="#book" class="btn btn-primary" style="padding: 8px 20px;">Забронировать</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <div class="container">
+        <div class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">🔥 Бизнес Йога | Лаборатория "Жизнь-is тренинг"</div>
+                <h1>Бизнес-лагерь для лидеров, руководителей и собственников</h1>
+                <p>2 дня, которые меняют не только бизнес. Они меняют то, как ты живешь, думаешь и взаимодействуешь с людьми.</p>
+                <div class="hero-buttons">
+                    <a href="https://t.me/ElenaSi_11" target="_blank" class="btn btn-primary"><i class="fab fa-telegram"></i> Забронировать место</a>
+                    <a href="#systems" class="btn btn-outline"><i class="fas fa-play"></i> Узнать программу</a>
+                </div>
+                <div class="hero-quote">
+                    «Ты уже проходишь этот тренинг. Каждый день. Через людей, конфликты, решения...<br>
+                    За 2 дня ты увидишь то, что раньше не видел. Я не учу. Я создаю новые нейронные связи.»
+                </div>
+            </div>
+            <div class="hero-image" style="flex:1; text-align:center; background: #f4efE4; border-radius: 40px; padding: 30px;">
+                <i class="fas fa-brain" style="font-size: 8rem; color: var(--gold); opacity: 0.8;"></i>
+                <p style="margin-top: 20px; font-weight: 500;">Нейрофизиологический подход</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Это не про бизнес, это про жизнь -->
+    <div class="section-light">
+        <div class="container">
+            <div class="section-title">Это не про бизнес. Это про жизнь</div>
+            <div class="mission-text">
+                Этот тренинг — квинтэссенция основ, на которых строится всё: бизнес, команды, партнерства, семья, дружба, любые отношения.<br>
+                <strong>👉 Это про коммуникацию как основу жизни</strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- Миссия -->
+    <div class="container section">
+        <div class="section-title">💎 Моя миссия</div>
+        <div class="mission-text" style="max-width: 900px;">
+            Наполнять этот мир любовью, гармонией и красотой через осознанных лидеров.<br><br>
+            Осознанный руководитель → сильная команда → здоровая культура → счастливые люди.<br>
+            Бизнес делает счастливыми и сотрудников, и клиентов, и самого лидера.
+        </div>
+    </div>
+
+    <!-- Как я работаю + отличие -->
+    <div class="section-light">
+        <div class="container">
+            <div class="grid-2col">
+                <div>
+                    <h2 class="section-title" style="text-align: left;">🧠 Как я работаю</h2>
+                    <p style="font-size: 1.1rem;">Большинство тренингов дают знания, инструменты, вдохновение — и всё возвращается обратно. Я работаю иначе.<br><br>
+                    Мой формат — живое, поточное, глубокое взаимодействие. С опорой на андрагогику и нейрофизиологию.<br>
+                    <strong>Я не учу. Я меняю способ мышления и реагирования.</strong></p>
+                </div>
+                <div>
+                    <h2 class="section-title" style="text-align: left;">🔥 Главное отличие</h2>
+                    <p style="font-size: 1.1rem;">Я работаю с каждым участником лично. Ты приходишь со своей реальной ситуацией: команда не тянет, конфликт, выгорание, масштабирование — и ты не уходишь без ответа.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 9 систем управления -->
+    <div class="container section" id="systems">
+        <div class="section-title">⚡️ Что ты получишь</div>
+        <div class="section-sub">9 ключевых систем управления людьми и собой — в единую систему</div>
+        <div class="grid-3col">
+            <div class="card"><div class="card-icon">🧠</div><h3>3 мозга</h3><p>Как реально принимаются решения и как влиять на поведение</p></div>
+            <div class="card"><div class="card-icon">🔺</div><h3>Пирамида Маслоу</h3><p>Глубинная мотивация людей</p></div>
+            <div class="card"><div class="card-icon">👶👨‍👩‍👧‍👦</div><h3>Коммуникация по Берну</h3><p>Ребенок — Родитель — Взрослый</p></div>
+            <div class="card"><div class="card-icon">🧍‍♂️</div><h3>4 этапа взросления личности</h3><p>Как вырастить зрелых сотрудников</p></div>
+            <div class="card"><div class="card-icon">👥</div><h3>4 этапа развития команды</h3><p>Почему команда «не едет»</p></div>
+            <div class="card"><div class="card-icon">😔</div><h3>Стадии проживания изменений</h3><p>Сопротивление, кризисы, трансформация</p></div>
+            <div class="card"><div class="card-icon">🔄</div><h3>Внедрение изменений</h3><p>Как делать так, чтобы не откатывалось</p></div>
+            <div class="card"><div class="card-icon">🎯</div><h3>DISC + Шульц фон Тун</h3><p>Типы личностей и глубинная коммуникация</p></div>
+            <div class="card"><div class="card-icon">🧩</div><h3>Модель Белбина</h3><p>Роли в команде и их баланс</p></div>
+        </div>
+        <div style="text-align: center; margin-top: 40px;"><i class="fas fa-link" style="color: var(--gold);"></i> Всё это собирается в одну систему управления</div>
+    </div>
+
+    <!-- Что изменится -->
+    <div class="section-light">
+        <div class="container">
+            <div class="section-title">⚡️ Что изменится</div>
+            <div class="two-columns">
+                <div><h3><i class="fas fa-ban" style="color: var(--gold);"></i> Ты перестанешь:</h3>
+                    <ul class="insight-list"><li><i class="fas fa-times-circle"></i> контролировать</li><li><i class="fas fa-times-circle"></i> уговаривать</li><li><i class="fas fa-times-circle"></i> раздражаться</li><li><i class="fas fa-times-circle"></i> тащить всё на себе</li></ul>
+                </div>
+                <div><h3><i class="fas fa-check-circle" style="color: var(--gold);"></i> Ты начнешь:</h3>
+                    <ul class="insight-list"><li><i class="fas fa-check-circle"></i> видеть систему</li><li><i class="fas fa-check-circle"></i> понимать людей</li><li><i class="fas fa-check-circle"></i> управлять осознанно</li><li><i class="fas fa-check-circle"></i> строить сильные команды</li></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Про меня -->
+    <div class="container section" id="author">
+        <div class="author-wrap">
+            <div class="author-photo">
+                <div class="avatar">ЕС</div>
+                <!-- Замените на реальное фото: <img src="elena.jpg" style="border-radius:50%; width:240px;"> -->
+            </div>
+            <div class="author-bio">
+                <h2 style="font-size: 2.2rem;">Елена Сильванович</h2>
+                <ul class="insight-list" style="margin: 20px 0;">
+                    <li><i class="fas fa-briefcase"></i> 15 лет управления в IKEA (лидер для лидеров, страна)</li>
+                    <li><i class="fas fa-city"></i> Работа с Правительством Москва</li>
+                    <li><i class="fas fa-chart-line"></i> 15 000+ часов работы, 1500+ групп, 150+ команд, 40+ культур</li>
+                    <li><i class="fas fa-globe"></i> Международный фасилитатор, бизнес-тренер, психолог, agile coach</li>
+                </ul>
+                <p><strong>Моя сила:</strong> вижу систему в хаосе, чувствую динамику команд, нахожу корень проблемы, соединяю людей, бизнес и смыслы.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Формат и аудитория -->
+    <div class="section-light" id="format">
+        <div class="container">
+            <div class="grid-2col">
+                <div>
+                    <h2><i class="fas fa-clock"></i> 🔒 Формат</h2>
+                    <ul class="insight-list">
+                        <li><i class="fas fa-calendar-alt"></i> <strong>Даты:</strong> 9–10 мая</li>
+                        <li><i class="fas fa-clock"></i> 2 дня (16 часов)</li>
+                        <li><i class="fas fa-users"></i> Группа 10–15 человек</li>
+                        <li><i class="fas fa-comments"></i> Личные разборы, глубокая работа</li>
+                        <li><i class="fas fa-envelope"></i> Сопровождение после тренинга</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2><i class="fas fa-user-check"></i> 🚨 Для кого</h2>
+                    <ul class="insight-list">
+                        <li><i class="fas fa-user-tie"></i> Руководители</li>
+                        <li><i class="fas fa-chart-simple"></i> Предприниматели</li>
+                        <li><i class="fas fa-people-arrows"></i> HR, лидеры команд</li>
+                        <li><i class="fas fa-heart"></i> Лидеры своей жизни</li>
+                    </ul>
+                    <div style="margin-top: 20px; background: #f4e8da; padding: 20px; border-radius: 24px;">
+                        ❌ <strong>Не для тебя, если</strong> ты хочешь просто «послушать», не готов меняться или ищешь быстрые советы.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Стоимость и CTA -->
+    <div class="container section" id="price">
+        <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+            <div class="price">39 000 ₽ <small>за 2 полных дня</small></div>
+            <p style="margin: 20px 0;">Инвестиция в вашу новую систему управления собой и бизнесом</p>
+            <div id="book"></div>
+            <a href="https://t.me/ElenaSi_11" target="_blank" class="btn btn-primary" style="font-size: 1.2rem; padding: 16px 48px;"><i class="fab fa-telegram"></i> Забронировать место</a>
+            <div class="hero-quote" style="margin-top: 48px; text-align: center;">
+                Ты уже проходишь этот тренинг. Каждый день. С одними и теми же уроками.<br>
+                Может, пора наконец их понять?
+            </div>
+        </div>
+    </div>
+
+    <!-- Футер с контактами -->
+    <div class="footer">
+        <div class="container">
+            <p>© Лаборатория «Жизнь-is тренинг» | Бизнес Йога | Елена Сильванович</p>
+            <p style="margin-top: 12px;">
+                <i class="fas fa-phone-alt"></i> <a href="tel:+79776441966">+7 977 644-19-66</a> &nbsp;|&nbsp;
+                <i class="fas fa-envelope"></i> <a href="mailto:vkarolina@mail.ru">vkarolina@mail.ru</a> &nbsp;|&nbsp;
+                <i class="fab fa-telegram"></i> <a href="https://t.me/ElenaSi_11" target="_blank">@ElenaSi_11</a>
+            </p>
+            <p style="margin-top: 12px; font-size: 0.8rem;">Даты тренинга: 9–10 мая. Количество мест ограничено.</p>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === "#" || href === "") return;
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
